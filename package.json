@@ -33,7 +33,7 @@
   "dependencies": {
     "@connectrpc/connect": "^1.1.3",
     "@connectrpc/connect-web": "^1.1.3",
-    "@webmeshproject/api": "^0.12.2",
+    "@webmeshproject/api": "^0.12.7",
     "react": "^18.2.0"
   }
 }
