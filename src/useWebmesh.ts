@@ -26,6 +26,24 @@ export class DaemonOptions extends Options {
 }
 
 /**
+ * Context is the context for interacting with a webmesh daemon.
+ */
+export interface Context {
+    /**
+     * client is the daemon client.
+     */
+    client: DaemonClient;
+}
+
+/**
  * useWebmesh is a hook for interacting with a webmesh daemon.
  */
-export function useWebmesh(opts?: Partial<DaemonOptions>) {};
+export function useWebmesh(opts?: Partial<DaemonOptions>) {
+    const [client, setClient] = useState<DaemonClient>({} as DaemonClient);
+    useEffect(() => {
+        const daemonopts = new DaemonOptions(opts);
+        const daemon = daemonopts.client();
+        setClient(daemon);
+    }, [opts]);
+    return { client } as Context;
+};

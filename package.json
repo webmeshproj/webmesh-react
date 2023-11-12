@@ -25,6 +25,7 @@
   "homepage": "https://github.com/webmeshproj/webmesh-react#readme",
   "devDependencies": {
     "@types/node": "^20.9.0",
+    "@types/react": "^18.2.37",
     "prettier": "^3.0.3",
     "tsx": "^4.0.0",
     "typedoc": "^0.25.3",
