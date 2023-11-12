@@ -41,9 +41,7 @@ export interface Context {
 export function useWebmesh(opts?: Partial<DaemonOptions>) {
     const [client, setClient] = useState<DaemonClient>({} as DaemonClient);
     useEffect(() => {
-        const daemonopts = new DaemonOptions(opts);
-        const daemon = daemonopts.client();
-        setClient(daemon);
+        setClient(new DaemonOptions(opts).client());
     }, [opts]);
     return { client } as Context;
 };
