@@ -115,7 +115,7 @@ export function useWebmesh(opts?: Partial<DaemonOptions>) {
             listNetworks().catch((err: Error) => {
                 setError(err);
             });
-        });
+        }, opts?.pollInterval || 5000);
         return () => {
             if (interval) {
                 clearInterval(interval);
