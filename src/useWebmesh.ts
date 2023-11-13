@@ -1,19 +1,24 @@
-import { useState, useEffect } from "react";
-import { createGrpcWebTransport } from "@connectrpc/connect-web";
+import { useState, useEffect } from 'react';
+import { createGrpcWebTransport } from '@connectrpc/connect-web';
 import {
     GetConnectionResponse,
     PutConnectionResponse,
     DaemonConnStatus,
     DaemonStatus,
     ListConnectionsResponse,
-} from "@webmeshproject/api/v1/app_pb";
+} from '@webmeshproject/api/v1/app_pb';
 import {
     DaemonClient,
     Options,
     DefaultNamespace,
     DefaultDaemonAddress,
-} from "@webmeshproject/api/utils/daemon";
-import { Metrics, Network, NetworkParameters, Parameters } from "@webmeshproject/api/utils/networks";
+} from '@webmeshproject/api/utils/daemon';
+import {
+    Metrics,
+    Network,
+    NetworkParameters,
+    Parameters,
+} from '@webmeshproject/api/utils/networks';
 
 /**
  * DaemonOptions are options for connecting to a daemon process.
@@ -254,10 +259,7 @@ export function useWebmesh(opts?: Partial<DaemonOptions>) {
         });
     };
 
-    const deviceMetrics = (
-        id: string,
-        pollInterval?: number,
-    ): Metrics => {
+    const deviceMetrics = (id: string, pollInterval?: number): Metrics => {
         const [metrics, setMetrics] = useState<Metrics>({} as Metrics);
         const interval = setInterval(() => {
             const conn = networks.find((c) => c.id === id);
@@ -293,11 +295,14 @@ export function useWebmesh(opts?: Partial<DaemonOptions>) {
         listNetworks().catch((err: Error) => {
             setError(err);
         });
-        interval = setInterval(() => {
-            listNetworks().catch((err: Error) => {
-                setError(err);
-            });
-        }, opts?.pollInterval || 5000);
+        interval = setInterval(
+            () => {
+                listNetworks().catch((err: Error) => {
+                    setError(err);
+                });
+            },
+            opts?.pollInterval || 5000,
+        );
         return () => {
             if (interval) {
                 clearInterval(interval);
