@@ -63,7 +63,9 @@ export interface Context {
  * useWebmesh is a hook for interacting with a webmesh daemon.
  */
 export function useWebmesh(opts?: Partial<DaemonOptions>) {
-    const [client, setClient] = useState<DaemonClient>(new DaemonOptions(opts).client());
+    const [client, setClient] = useState<DaemonClient>(
+        new DaemonOptions(opts).client(),
+    );
     const [networks, setNetworks] = useState<Network[]>([]);
     const [error, setError] = useState<Error | undefined>(undefined);
 
@@ -108,6 +110,11 @@ export function useWebmesh(opts?: Partial<DaemonOptions>) {
         setClient(client);
         listNetworks().catch((err: Error) => {
             setError(err);
+        });
+        interval = setInterval(() => {
+            listNetworks().catch((err: Error) => {
+                setError(err);
+            });
         });
         return () => {
             if (interval) {
