@@ -56,14 +56,14 @@ export interface Context {
     /**
      * listNetworks returns the current list of networks.
      */
-    listNetworks(): Promise<Array<Network>>;
+    listNetworks(): Promise<Network[]>;
 }
 
 /**
  * useWebmesh is a hook for interacting with a webmesh daemon.
  */
 export function useWebmesh(opts?: Partial<DaemonOptions>) {
-    const [client, setClient] = useState<DaemonClient>({} as DaemonClient);
+    const [client, setClient] = useState<DaemonClient>(new DaemonOptions(opts).client());
     const [networks, setNetworks] = useState<Network[]>([]);
     const [error, setError] = useState<Error | undefined>(undefined);
 
