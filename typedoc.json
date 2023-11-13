@@ -1,6 +1,6 @@
 {
     "$schema": "https://typedoc.org/schema.json",
-    "entryPoints": ["index.ts", "src"],
+    "entryPoints": ["index.ts", "src/useWebmesh.ts"],
     "entryPointStrategy": "expand",
     "out": "docs",
     "navigationLinks": {

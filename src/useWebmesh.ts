@@ -98,7 +98,7 @@ export interface Context {
 /**
  * useWebmesh is a hook for interacting with a webmesh daemon.
  */
-export function useWebmesh(opts?: Partial<DaemonOptions>) {
+export function useWebmesh(opts?: Partial<DaemonOptions>): Context {
     const [client, setClient] = useState<DaemonClient>(
         new DaemonOptions(opts).client(),
     );
