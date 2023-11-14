@@ -1,3 +1,4 @@
+import { DaemonStatus } from '@webmeshproject/api/v1/app_pb';
 import {
     Defaults,
     Network,
@@ -19,6 +20,7 @@ export {
     DefaultNamespace,
     DefaultDaemonAddress,
     Defaults,
+    DaemonStatus,
     DaemonOptions,
     Options,
     Network,

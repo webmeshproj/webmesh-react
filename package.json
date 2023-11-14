@@ -1,6 +1,6 @@
 {
     "name": "@webmeshproject/react",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "React hooks for working with Webmesh networks",
     "main": "index.ts",
     "type": "module",
