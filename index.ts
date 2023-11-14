@@ -1,4 +1,5 @@
 import {
+    Defaults,
     Network,
     NetworkParameters,
     Parameters,
@@ -17,6 +18,7 @@ export type { Parameters, Context, DaemonClient, Metrics, NetworkParameters };
 export {
     DefaultNamespace,
     DefaultDaemonAddress,
+    Defaults,
     DaemonOptions,
     Options,
     Network,
