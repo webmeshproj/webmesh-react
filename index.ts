@@ -1,3 +1,24 @@
+import {
+    Network,
+    NetworkParameters,
+    Parameters,
+    Metrics,
+} from '@webmeshproject/api/utils/networks';
+import {
+    DaemonClient,
+    Options,
+    DefaultNamespace,
+    DefaultDaemonAddress,
+} from '@webmeshproject/api/utils/daemon';
 import { DaemonOptions, Context, useWebmesh } from './src/useWebmesh';
-export type { Context };
-export { DaemonOptions, useWebmesh };
+
+export type { Parameters, Context, DaemonClient, Metrics, NetworkParameters };
+
+export {
+    DefaultNamespace,
+    DefaultDaemonAddress,
+    DaemonOptions,
+    Options,
+    Network,
+    useWebmesh,
+};
