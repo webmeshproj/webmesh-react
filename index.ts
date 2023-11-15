@@ -25,7 +25,9 @@ import {
 
 import { DaemonOptions, Context, useWebmesh } from './src/useWebmesh';
 
-export type {
+export type { Context, DaemonClient, Metrics, NetworkParameters, Parameters };
+
+export {
     AddrType,
     AuthHeader,
     ConnectionStatus,
@@ -33,8 +35,6 @@ export type {
     Feature,
     NetworkAuthMethod,
 };
-
-export type { Context, DaemonClient, Metrics, NetworkParameters, Parameters };
 
 export {
     AppDaemon,
